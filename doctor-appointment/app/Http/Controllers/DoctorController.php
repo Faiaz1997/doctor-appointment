@@ -20,6 +20,8 @@ class DoctorController extends Controller
         return view('doctors.create', compact('departments'));
     }
 
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -32,6 +34,20 @@ class DoctorController extends Controller
         Doctor::create($request->all());
 
         return redirect()->route('doctors.index')->with('success', 'Doctor created successfully.');
+    }
+
+    public function storeDepartment(Request $request)
+    {
+        $request->validate([
+            'newValue' => 'required|string|max:255',
+        ]);
+    
+        $department = Department::create(['name' => $request->newValue]);
+    
+        return response()->json([
+            'id' => $department->id,
+            'name' => $department->name,
+        ]);
     }
 
     public function edit(Doctor $doctor)
