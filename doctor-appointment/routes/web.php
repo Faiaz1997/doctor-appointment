@@ -13,6 +13,7 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index'
 Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
 Route::post('/doctors/add', [DoctorController::class, 'store'])->name('doctors.store');
 Route::post('/departments/add', [DoctorController::class, 'storeDepartment'])->name('departments.store');
+Route::post('/doctors/review', [DoctorController::class, 'review'])->name('doctors.review');
 Route::get('/doctors/edit/{doctor}', [DoctorController::class, 'edit'])->name('doctors.edit');
 Route::post('/doctors/update/{doctor}', [DoctorController::class, 'update'])->name('doctors.update');
 Route::post('/doctors/{doctor}', [DoctorController::class, 'destroy'])->name('doctors.destroy');

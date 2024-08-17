@@ -50,6 +50,14 @@ class DoctorController extends Controller
         ]);
     }
 
+    public function review(Request $request)
+    {
+        // Handle reviewing the doctor's information
+        // You can do further processing or validation here
+
+        return redirect()->back()->with('success', 'Doctor information reviewed successfully!');
+    }
+
     public function edit(Doctor $doctor)
     {
         $departments = Department::all();
